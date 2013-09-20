@@ -81,25 +81,33 @@ def is_valid_sequence(sequence):
     False
     '''
 
-    valid = True
-    for nucleotide in sequence:
-        count = 0
-        valid_ltide = ['A', 'T', 'C', 'G']
-        for r in valid_ltide:
-            if nucleotide == r:
-                count += 1
-        if count < 1:
-            valid = False
+    for nuc in sequence:
+        if nuc not in 'ATCG':
+            return False
+    return True
 
-    return valid
+    # valid = True
+    # for nucleotide in sequence:
+    #     count = 0
+    #     valid_ltide = ['A', 'T', 'C', 'G']
+    #     for r in valid_ltide:
+    #         if nucleotide == r:
+    #             count += 1
+    #     if count < 1:
+    #         valid = False
 
+    # return valid
 
+def insert_sequence(str1, str2, str_index):
+    '''
+    (str, str, int) -> str
+    
+    Return str2 inserted into str1 at str_index.
 
-# The parameter is a potential DNA sequence. Return True if and only if the DNA sequence is valid 
-# (that is, it contains no characters other than 'A', 'T', 'C' and 'G'). There are at least 2 ways
-# to approach this. One way is to count the number of characters that are not nucleotides and then
-# at the end check whether there were more than zero. Another way is to use a Boolean variable that
-# represents whether you have found a non-nucleotide character; it would start off as True and would
-# be set to False if you found something that wasn't an 'A', 'T', 'C' or 'G'. You should construct
-# examples that contain only 'A's, 'T's, 'C's and 'G's, and you should also create examples that 
-# contain other characters. A string is not a valid DNA sequence if it contains lowercase letters.
+    >>>insert_sequence('CCGG', 'AT', 2)
+    CCATGG
+    >>>insert_sequence('CCGG', 'AT', 1)
+    CATCGG
+    '''
+
+    return str1[:str_index] + str2 + str1[str_index:]
