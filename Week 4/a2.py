@@ -65,8 +65,39 @@ def contains_sequence(dna1, dna2):
     else:
         return False
 
+def is_valid_sequence(sequence):
+    '''
+    (str) -> bool
 
-#print(get_length('ATCGAT'))
+    Return true if sequence contains only uppercase letter sequences of A, T, C, or G
 
-print(is_longer('ATCG', 'AT'))
-print(is_longer('ATCG', 'ATCGGA'))
+    >>>is_valid_sequence('ATCG')
+    True
+    >>>is_valid_sequence('atcg')
+    False
+    >>>is_valid_sequence('ATCGX')
+    False
+    '''
+
+    valid = True
+    for nucleotide in sequence:
+        count = 0
+        valid_ltide = ['A', 'T', 'C', 'G']
+        for r in valid_ltide:
+            if nucleotide == r:
+                count += 1
+        if count < 1:
+            valid = False
+
+    return valid
+
+
+
+# The parameter is a potential DNA sequence. Return True if and only if the DNA sequence is valid 
+# (that is, it contains no characters other than 'A', 'T', 'C' and 'G'). There are at least 2 ways
+# to approach this. One way is to count the number of characters that are not nucleotides and then
+# at the end check whether there were more than zero. Another way is to use a Boolean variable that
+# represents whether you have found a non-nucleotide character; it would start off as True and would
+# be set to False if you found something that wasn't an 'A', 'T', 'C' or 'G'. You should construct
+# examples that contain only 'A's, 'T's, 'C's and 'G's, and you should also create examples that 
+# contain other characters. A string is not a valid DNA sequence if it contains lowercase letters.
