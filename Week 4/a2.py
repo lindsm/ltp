@@ -41,6 +41,11 @@ def count_nucleotides(dna, nucleotide):
     0
     """
 
+    count = 0
+    for ntide in dna:
+        if ntide == nucleotide:
+            count += 1
+    return count
 
 def contains_sequence(dna1, dna2):
     """ (str, str) -> bool
@@ -54,6 +59,11 @@ def contains_sequence(dna1, dna2):
     False
 
     """
+
+    if dna2 in dna1:
+        return True
+    else:
+        return False
 
 
 #print(get_length('ATCGAT'))
