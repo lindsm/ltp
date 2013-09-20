@@ -24,10 +24,11 @@ def is_longer(dna1, dna2):
     False
     """
 
-    if len(dna1) > len(dna2):
-        return True
-    else:
-        return False
+    return len(dna1) > len(dna2)
+    # if len(dna1) > len(dna2):
+    #     return True
+    # else:
+    #     return False
 
 
 def count_nucleotides(dna, nucleotide):
@@ -40,12 +41,12 @@ def count_nucleotides(dna, nucleotide):
     >>> count_nucleotides('ATCTA', 'G')
     0
     """
-
-    count = 0
-    for ntide in dna:
-        if ntide == nucleotide:
-            count += 1
-    return count
+    return len([ntide for ntide in dna if ntide == nucleotide])
+    # count = 0
+    # for ntide in dna:
+    #     if ntide == nucleotide:
+    #         count += 1
+    # return count
 
 def contains_sequence(dna1, dna2):
     """ (str, str) -> bool
@@ -60,10 +61,11 @@ def contains_sequence(dna1, dna2):
 
     """
 
-    if dna2 in dna1:
-        return True
-    else:
-        return False
+    return dna2 in dna1
+    # if dna2 in dna1:
+    #     return True
+    # else:
+    #     return False
 
 def is_valid_sequence(sequence):
     '''
