@@ -84,6 +84,7 @@ def is_valid_sequence(sequence):
     for nuc in sequence:
         if nuc not in 'ATCG':
             return False
+    
     return True
 
     # valid = True
@@ -111,3 +112,46 @@ def insert_sequence(str1, str2, str_index):
     '''
 
     return str1[:str_index] + str2 + str1[str_index:]
+
+
+def get_compliment(nucleotide):
+    '''
+    (str) -> str
+
+    Return nucleotide's compliment given that A & T are complimentary and C & G are complimentary.
+
+    >>>get_compliment('A')
+    T    
+    >>>get_compliment('C')
+    G
+    '''
+    compliment = {'A':'T', 'T':'A', 'C':'G', 'G':'C'}
+    return compliment.get(nucleotide)
+    # if nucleotide == 'A':
+    #     return 'T'
+    # elif nucleotide == 'T':
+    #     return 'A'
+    # elif nucleotide == 'C':
+    #     return 'G'
+    # elif nucleotide == 'G':
+    #     return 'C'
+
+def get_complementary_sequence(str1):
+    '''
+    (str) -> str
+
+    Return the complimentary DNA sequence of str1.
+
+    # The parameter is a DNA sequence. Return the DNA sequence that is complementary to the given DNA sequence.
+    # For exmaple, if you call this function with 'AT' as the argument, it should return 'TA'.
+    
+    >>>get_complementary_sequence('ATCG')
+    'TAGC'
+    >>>get_complementary_sequence('AC')
+    'TG'
+    '''
+
+    c_seq = ''
+    for nuc in str1:
+        c_seq += get_compliment(nuc)
+    return c_seq
