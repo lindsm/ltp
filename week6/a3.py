@@ -160,11 +160,10 @@ def num_words_on_board(board, words):
     """
     count = 0
     for word in words:
-        if board_contains_word(board, word):
-            count += count
+        if board_contains_word(board, word) == True:
+            count += 1
 
     return count
-
 
 def read_words(words_file):
     """ (file open for reading) -> list of str
